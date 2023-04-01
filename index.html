@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiemtra2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+       <div class="row">
+         <!-- left  -->
+                <div class=" col col-lg-4  col-md-12 bg-white border border-muted px-0  mt-1" > 
+                <nav class="navbar bg-info navbar-dark text-light rounded-top " id="nav" style="height: 2.5rem;">
+                    <h6>NHẬP THÔNG TIN XE CỘ</h6>
+                </nav>
+                   <div id ='Myform' class="px-3 py-0" >
+
+                      <!-- form tên xe -->
+                      <div class="form-group m-0 " >
+                        <label for="namecar  " >Tên Xe</label>
+                        <label  class="text-danger " for="namecar">*</label>
+                        <label for="namecar ">:</label>
+                        <input type="text" class="form-control" id="namecar"  name="namecar" style="height: 2rem;" onblur="checkname()" >
+                        <span id="errorname"class="text-danger"></span>
+                      </div>
+
+                      <!-- form hình ảnh -->
+                      <div class="form-group m-0">
+                        <label for="image">Hình Ảnh <span class="text-danger">*</span> : </label><a href="#" onclick="showlink()">link tham khảo</a>
+                        <input type="url" class="form-control" id="image"  name="image" style="height: 2rem;" onblur="checkimage()">
+                        <span id="errorimage" class="text-danger"></span>
+                      </div>
+
+                      <!-- form hãng xe -->
+                       <div class="form-group  ">
+                        <label for="type">Hãng Xe</label>
+                        <label  class="text-danger" for="type">*</label>
+                        <label for="type">:</label>
+                        <select id="type" class="form-control" style="height: 2rem;" required onblur="checktype()">
+                        <option selected>  --Hãng Xe--</option>
+                        <option class="font-weight-bolder" >Swedish</option>
+                        <option> Volvo</option>
+                        <option>  Saab</option>
+                        <option class="font-weight-bolder">  German</option>
+                        <option>Mercedes</option>
+                        <option>Audi</option>
+                        <option>BMW</option>
+                        <option class="font-weight-bolder">England</option>
+                        <option>Rolls-Royce</option>
+                        <option>Jaguar</option>
+                        </select>
+                        <span class="text-danger" id="errortype"></span>
+                      </div>
+
+                      <!-- form giá tiền -->
+                      <div class="form-group m-0 " >
+                        <label for="money">Giá tiền</label>
+                        <label  class="text-danger" for="money">*</label>
+                        <label for="money">:</label>
+                        <input type="number" title="giá tiền phải là số dương!"  id="money" name="money" class="form-control" style="height: 2rem;" onblur="checkmoney()">
+                        <span class="text-danger" id="errormoney"></span>
+                      </div>
+
+                      <!-- form mô tả -->
+                     <div class="form-group mb-0">
+                        <label for="myTextarea2">Mô tả:</label>
+                        <textarea id="myTextarea2" class="form-control" rows="2"></textarea>
+                      </div>
+
+                      <!-- form người liên hệ -->
+                    <div class="form-group m-0">
+                        <label for="people" >Người liên hệ</label>
+                        <label  class="text-danger" for="people">*</label>
+                        <label for="people">:</label>
+                        <input type="text" class="form-control" id="people"  name="people" style="height: 2rem;" onblur="checkpeople()">
+                        <span id="errorpeople"class="text-danger"></span>
+                    </div>
+
+                    <!-- form số điện thoại -->
+                    <div class="form-group m-0">
+                        <label for="number">Số điện thoại người liên hệ</label>
+                        <label  class="text-danger" for="number">*</label>
+                        <label for="number">:</label>
+                        <input title="Số điện thoại gồm 10 số với bắt đầu là +84" type="text" class="form-control"  id="number"  name="number" style="height:2rem;" value="+84" minlength="9" onblur="numbercheck()">
+                        <span id="errornumber" class="text-danger"></span>
+                    </div>
+
+                      <!-- form email -->
+                    <div class="form-group m-0 ">
+                        <label for="email">Email</label>
+                        <label  class="text-danger" for="email">*</label>
+                        <label for="email">:</label>
+                        <input title="email bắt đầu bằng chữ cái viết thường và trên 5 kí tự " id="email" name="email" 
+                        class="custom-select mb-3" style="height: 2rem;" onblur="checkmail()" placeholder="VD:vannguyen@gmail.com">
+                        <span id="erroremail"class="text-danger" ></span>
+                    </div>
+                    
+                   <!-- các nút -->
+                    <button id='save'  type="submit" class="btn btn-success">Lưu</button>
+                    <button id='delete' type="submit" class="btn btn-warning " >Xóa</button>
+                   </div>
+              </div>
+
+     <!-- right screen -->
+            <div class="col-lg-8 col-md-12 mt-1 " >
+                <nav class="navbar bg-info navbar-dark text-light mt-0 rounded-top " id="nav" style="height: 2.5rem;">
+                  <h6>QUẢN LÍ DANH SÁCH XE CỘ</h6>
+                </nav>
+
+              <!-- tìm kiếm  -->
+              <div class="form-group pt-2 mb-1">
+                <input type="text" class="form-control  " id="myInput"  name="myInput" onkeyup="myFunction()" style="height: 2.5rem;">
+              </div>
+
+              <!-- bảng  -->
+              <div class="table-responsive ">
+                <table id="table"class="table table-bordered table-hover">
+                  <thead >
+                    <tr >
+                      <th scope="col"> STT</th>
+                      <th scope="col">Hình Ảnh</th>
+                      <th scope="col">Tên Xe</th>
+                      <th scope="col">Hãng Xe</th>
+                      <th scope="col">Giá tiền</th>
+                      <th scope="col">Người liên hệ</th>
+                      <th scope="col">Điện thoại</th>
+                      <th scope="col">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mykey">
+                      <tr id="row">
+                      </tr>
+                  </tbody>
+                </table>
+          </div>
+    </div>
+</div>
+
+</body>
+</html>

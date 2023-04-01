@@ -1,0 +1,26 @@
+img{
+     width: 80px;
+     margin: auto;
+     padding: 0;
+    
+}
+#van{
+   width: 82px; 
+     padding: 0;
+} 
+*{font-size: 14px}
+.table{
+   margin-top: 1.30%;
+    width: 100%;
+    font-size: 13px;
+    padding: 6px;
+}
+h6{
+    font-size: 17px;
+}
+#Myform{
+    font-size: 13px;
+}
+tr{
+    width: auto;
+}
